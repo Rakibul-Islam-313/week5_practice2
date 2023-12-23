@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home page{% endblock%}
+{% load crispy_forms_tags %}
+{% block content %}
+<h3 style="text-align: center;">If you want to edit or delete albums<br/>You need logged first</h3>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Musician Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Album Rating</th>
+        <th scope="col">Instrument Type</th>
+        <th scope="col">Album Name</th>
+        <th scope="col">Release date</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.musician.first_name}} {{i.musician.last_name}}</td>
+        <td>{{i.musician.email}}</td>
+        <td>{{i.rating}}</td>
+        <td>{{i.musician.instrument_type}}</td>
+        <td>{{i.album_name}}</td>
+        <td>{{i.album_release_date}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
